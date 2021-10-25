@@ -36,6 +36,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- fonts -->
 	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
     @livewireStyles
+    @yield('css')
+    @routes()
 </head>
 
 <body>
@@ -93,17 +95,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<!-- //search -->
 				<!-- cart details -->
-				<div class="top_nav_right">
-					<div class="wthreecartaits wthreecartaits2 cart cart box_1">
-						<form action="{{route('checkout')}}" method="post" class="last">
-							<input type="hidden" name="cmd" value="_cart">
-							<input type="hidden" name="display" value="1">
-							<button class="w3view-cart" type="submit" name="submit" value="">
-								<i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-							</button>
-						</form>
-					</div>
-				</div>
+                <div class="top_nav_right">
+                    {{-- <div class="wthreecartaits wthreecartaits2 cart cart box_1">
+                        <form action="{{route('product.cart')}}" method="post" >
+                            @csrf
+                            <input type="hidden" name="cmd" value="">
+                            <input type="hidden" name="display" value="">
+                            <button class="w3view-cart" type="submit" name="submit" value=""> --}}
+                                <a href="{{route('product.cart')}}"><i class="fa fa-cart-arrow-down fa-cart" aria-hidden="true"></i></a>
+                            {{-- </button>
+                        </form>
+                    </div> --}}
+                </div>
 				<!-- //cart details -->
 				<div class="clearfix"></div>
 			</div>
@@ -1163,7 +1166,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //popup modal (for signin & signup)-->
 
 	<!-- cart-js -->
-	<script src="{{asset('assets/js/minicart.js')}}"></script>
+	{{-- <script src="{{asset('assets/js/minicart.js')}}"></script>
 	<script>
 		paypalm.minicartk.render(); //use only unique class names other than paypalm.minicartk.Also Replace same class name in css and minicart.min.js
 
@@ -1183,7 +1186,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				evt.preventDefault();
 			}
 		});
-	</script>
+	</script> --}}
 	<!-- //cart-js -->
 
 	<!-- price range (top products) -->
@@ -1263,7 +1266,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- start-smooth-scrolling -->
 	<script src="{{asset('assets/js/move-top.js')}}"></script>
 	<script src="{{asset('assets/js/easing.js')}}"></script>
-    @livewireScripts
+
 	<script>
 		jQuery(document).ready(function ($) {
 			$(".scroll").click(function (event) {
@@ -1349,7 +1352,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //for bootstrap working -->
 	<!-- //js-files -->
 
-
+    @livewireScripts
 </body>
 
 </html>

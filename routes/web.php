@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\AboutusComponent;
+use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\FaqComponent;
@@ -40,4 +41,5 @@ Route::get('/single2',Single2Component::class)->name('single2');
 Route::get('/terms',TermsComponent::class)->name('terms');
 Route::get('/privacy',PrivacyComponent::class)->name('privacy');
 Route::get('/help',HelpComponent::class)->name('help');
+Route::get('/cart',CartComponent::class)->name('product.cart');
 Route::get('/checkout',CheckoutComponent::class)->name('checkout');
