@@ -43,3 +43,7 @@ Route::get('/privacy',PrivacyComponent::class)->name('privacy');
 Route::get('/help',HelpComponent::class)->name('help');
 Route::get('/cart',CartComponent::class)->name('product.cart');
 Route::get('/checkout',CheckoutComponent::class)->name('checkout');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
