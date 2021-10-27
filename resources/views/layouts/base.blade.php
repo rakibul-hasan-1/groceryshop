@@ -74,14 +74,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li>
 						<span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
 					</li>
-					<li>
-						<a href="#" data-toggle="modal" data-target="#myModal1">
-							<span class="fa fa-unlock-alt" aria-hidden="true"></span> Sign In </a>
-					</li>
-					<li>
-						<a href="#" data-toggle="modal" data-target="#myModal2">
-							<span class="fa fa-pencil-square-o" aria-hidden="true"></span> Sign Up </a>
-					</li>
+                    @if(Route::has('login'))
+                        @auth
+                            @if(Auth::user()->utype=="ADM")
+
+                                <li>
+                                    <div class="dropdown">
+                                        <button class="dropbtn">Welcome {{Auth::user()->name}}</button>
+                                        <div class="dropdown-content">
+                                        <a href="{{route('admin.dashboard')}}">Dashboard</a>
+                                        <a href="#">Link 2</a>
+                                        <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout </a>
+                                        </div>
+                                      </div>
+                                      <form id="logout-form" action="{{route('logout')}}" method="POST">
+                                        @csrf</form>
+                                </li>
+                            @else
+                            <li>
+                                  <div class="dropdown">
+                                    <button class="dropbtn">Welcome {{Auth::user()->name}}</button>
+                                    <div class="dropdown-content">
+                                    <a href="{{route('user.dashboard')}}">Dashboard</a>
+                                    <a href="#">Link 2</a>
+                                    <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout </a>
+                                    </div>
+                                  </div>
+                                  <form id="logout-form" action="{{route('logout')}}" method="POST">
+                                    @csrf</form>
+                            </li>
+
+                            @endif
+
+                    @else
+                    <li>
+                        <a href="{{route('login')}}" data-toggle="modal" data-target="#myModal1">
+                            <span class="fa fa-unlock-alt" aria-hidden="true"></span> Sign In </a>
+                    </li>
+                    <li>
+                        <a href="{{route('register')}}" data-toggle="modal" data-target="#myModal2">
+                            <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Sign Up </a>
+                    </li>
+                    @endif
+@endif
 				</ul>
 				<!-- //header lists -->
 				<!-- search -->
