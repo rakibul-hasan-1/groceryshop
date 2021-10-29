@@ -35,6 +35,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="{{asset('assets/css/flexslider.css')}}" type="text/css" media="screen" />
 	<!-- fonts -->
 	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+    
     @livewireStyles
     @yield('css')
     @routes()
@@ -82,8 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class="dropdown">
                                         <button class="dropbtn">Welcome {{Auth::user()->name}}</button>
                                         <div class="dropdown-content">
-                                        <a href="{{route('admin.dashboard')}}">Dashboard</a>
-                                        <a href="#">Link 2</a>
+                                        <a href="{{route('admin.dashboard')}}" target="_blank">Dashboard</a>
                                         <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout </a>
                                         </div>
                                       </div>
@@ -95,8 +95,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                   <div class="dropdown">
                                     <button class="dropbtn">Welcome {{Auth::user()->name}}</button>
                                     <div class="dropdown-content">
-                                    <a href="{{route('user.dashboard')}}">Dashboard</a>
-                                    <a href="#">Link 2</a>
+                                    <a href="{{route('user.dashboard')}}" target="_blank">Dashboard</a>
                                     <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout </a>
                                     </div>
                                   </div>
